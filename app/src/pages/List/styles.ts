@@ -35,6 +35,10 @@ export const Filters = styled.div`
           border-color: ${(props) => props.theme.colors.success} ;
 
       }
+
+      &.tag-actived {
+          opacity: 0.2;
+      }
   }
 
 `;

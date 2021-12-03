@@ -3,8 +3,8 @@ import { Container, Tag } from "./styles";
 interface IHistoryFinanceCardsProps {
   tagColor: string;
   title: string;
-  subTitle: string;
-  amount: string;
+  subTitle: string | Date;
+  amount: string | number;
 }
 
 export function HistoryFinanceCard({
@@ -19,7 +19,7 @@ export function HistoryFinanceCard({
 
       <div>
         <span>{title}</span>
-        <small>{amount}</small>
+        <small>{subTitle}</small>
       </div>
       <h3> {amount} </h3>
     </Container>

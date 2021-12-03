@@ -5,11 +5,17 @@ interface ISelectInputProps {
     value: string | number;
     label: string | number;
   }[];
+  onChange(event: React.ChangeEvent<HTMLSelectElement>): void;
+  defaultValue?: string | number;
 }
-export function SelectInput({ options }: ISelectInputProps) {
+export function SelectInput({
+  options,
+  onChange,
+  defaultValue,
+}: ISelectInputProps) {
   return (
     <Container>
-      <select>
+      <select onChange={onChange} defaultValue={defaultValue}>
         {options.map((option) => {
           return (
             <option key={option.value} value={option.value}>
