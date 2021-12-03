@@ -2,8 +2,23 @@ import { ContentHeader } from "../../components/ContentHeader";
 import { HistoryFinanceCard } from "../../components/HistoryFinanceCard";
 import { SelectInput } from "../../components/SelectInput";
 import { Container, Content, Filters } from "./styles";
+import { useParams } from "react-router-dom";
+import { useMemo, useState } from "react";
+
+import gains from "../../repositories/gains";
+import expenses from "../../repositories/expenses";
 
 export function List() {
+  const [history, setHistory] = useState([]);
+
+  let { type } = useParams();
+
+  const objDescription = useMemo(() => {
+    return type === "entry-balance"
+      ? { title: "Entradas", lineColor: "#F7931B" }
+      : { title: "Saídas", lineColor: "#E44C4E" };
+  }, [type]);
+
   const months = [
     {
       value: 1,
@@ -71,9 +86,13 @@ export function List() {
       label: 2021,
     },
   ];
+
   return (
     <Container>
-      <ContentHeader title="Entradas" lineColor="#000">
+      <ContentHeader
+        title={objDescription.title}
+        lineColor={objDescription.lineColor}
+      >
         <SelectInput options={months} />
         <SelectInput options={years} />
       </ContentHeader>

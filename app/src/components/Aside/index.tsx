@@ -25,15 +25,15 @@ export function Aside() {
       </Header>
 
       <MenuContainer>
-        <MenuItemLink href="http://fdsfs">
+        <MenuItemLink href="/dashboard">
           <MdDashboard /> Dashboard
         </MenuItemLink>
 
-        <MenuItemLink href="http://fdsfs">
+        <MenuItemLink href="/list/entry-balance">
           <MdArrowUpward /> Entradas
         </MenuItemLink>
 
-        <MenuItemLink href="http://fdsfs">
+        <MenuItemLink href="/list/exit-balance">
           <MdArrowDownward /> Saídas
         </MenuItemLink>
 
